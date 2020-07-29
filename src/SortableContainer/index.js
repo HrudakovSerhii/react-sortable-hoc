@@ -504,7 +504,9 @@ export default function sortableContainer(
       }
 
       // Remove the helper from the DOM
-      this.helper.parentNode.removeChild(this.helper);
+      if (this.helper && this.helper.parentNode) {
+        this.helper.parentNode.removeChild(this.helper);
+      }
 
       if (hideSortableGhost && this.sortableGhost) {
         setInlineStyles(this.sortableGhost, {
